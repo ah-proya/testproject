@@ -1,5 +1,5 @@
-document.getElementById("myButton").addEventListener("click", function() {
-    const heading = document.getElementById("heading");
-    heading.textContent = "متن با موفقیت تغییر کرد!";
-    heading.style.color = "#28a745";
+document.addEventListener('DOMContentLoaded', () => {
+    // You can add more interactive JavaScript here later.
+    // For now, it's a simple, clean, and modern design.
+    // You can add animations or other effects here.
 });
