@@ -5,78 +5,99 @@
 }
 
 body {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  color: #f4f4f4;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f1b;
+  color: #f0f0f0;
   padding: 2rem;
 }
 
 .container {
-  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 1000px;
+  margin: auto;
+  background: linear-gradient(145deg, #1b1b2f, #222232);
+  border-radius: 30px;
   padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-  max-width: 700px;
-  width: 100%;
-  text-align: center;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
 }
 
-h1 {
-  font-size: 3rem;
-  color: #00ffe1;
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1 1 50%;
+}
+
+.about-text h1 {
+  font-size: 2.5rem;
+  color: #a876ff;
   margin-bottom: 1rem;
-  letter-spacing: 1px;
 }
 
-h2 {
-  font-size: 1.5rem;
+.about-text p {
+  line-height: 1.7;
+  font-size: 1rem;
   color: #ccc;
-  margin-bottom: 2rem;
-  font-weight: 400;
 }
 
-.skills {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #eee;
-  margin-bottom: 2rem;
+.profile-pic {
+  flex: 1 1 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.contact {
-  font-size: 0.95rem;
-  color: #bbb;
+.profile-pic img {
+  border-radius: 25px;
+  width: 250px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-a {
+.section {
+  margin-top: 3rem;
+  background-color: #a876ff10;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.section h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.contact-links a {
   color: #00ffe1;
   text-decoration: none;
-  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 5px #00ffe1;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 2rem;
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    align-items: center;
   }
 
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  .skills {
-    font-size: 1rem;
+  .grid-2 {
+    grid-template-columns: 1fr;
   }
 }
