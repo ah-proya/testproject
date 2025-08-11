@@ -25,6 +25,9 @@
 
       <!-- دکمه برای باز کردن تنظیمات وای‌فای به عنوان پشتیبان -->
       <a id="openSettings" href="#" class="block w-full md:w-auto mx-auto px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-medium mb-4">بازکردن تنظیمات وای‌فای (اگر مستقیم نشد)</a>
+            <!-- دکمه ایجاد QR -->
+      <button id="generateQR" class="px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">نمایش QR اتصال</button>
+      <div id="qrContainer" class="mt-4 flex justify-center"></div>
       <!-- دکمه دانلود v2rayNG -->
       <a class="btn download" href="https://github.com/2dust/v2rayNG/releases/download/1.10.11/v2rayNG_1.10.11_arm64-v8a.apk">
       دانلود v2rayNG
@@ -33,9 +36,7 @@
       <!-- بقیه دکمه‌های دانلود (مثال) -->
       <a class="btn download" href="https://www.dl.farsroid.com/ap/Samsung%20Smart-Switch-3.7.65.4(www.farsroid.com).apk">smart swich</a>
       <a class="btn download" href="https://example.com/file2.zip">دانلود فایل ۲</a>
-      <!-- دکمه ایجاد QR -->
-      <button id="generateQR" class="px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">نمایش QR اتصال</button>
-      <div id="qrContainer" class="mt-4 flex justify-center"></div>
+
 
       <p class="mt-3 note">توجه: مرورگرها به دلایل امنیتی معمولاً اجازهٔ اتصال خودکار کامل را نمی‌دهند. کد زیر سعی می‌کند بهترین روش را برای اندروید و کروم اجرا کند؛ اگر کار نکرد، با دکمهٔ «بازکردن تنظیمات وای‌فای» صفحهٔ تنظیمات باز می‌شود تا دستی شبکه را انتخاب کنید یا QR را اسکن کنید.</p>
     </section>
@@ -96,54 +97,4 @@
       window.location.href = intentLink;
     });
   </script>
-</body>
-  <title>اتصال و دانلود</title>
-<style>
-    body {
-        font-family: sans-serif;
-        background: linear-gradient(135deg, #1a1a1a, #333);
-        color: #fff;
-        text-align: center;
-        padding: 50px;
-    }
-    h1 {
-        margin-bottom: 40px;
-    }
-    .btn {
-        display: inline-block;
-        padding: 15px 25px;
-        margin: 15px;
-        font-size: 18px;
-        color: white;
-        background: #2196f3;
-        border-radius: 10px;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-    .btn:hover {
-        background: #0b7dda;
-    }
-    .wifi {
-        background: #4caf50;
-    }
-    .wifi:hover {
-        background: #3e8e41;
-    }
-    .download {
-        background: #ff9800;
-    }
-    .download:hover {
-        background: #e68900;
-    }
-</style>
-
-  <body>
-
-<h1>ا دانلود</h1>
-
-
-
-
-</body>
-
 </html>
