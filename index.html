@@ -19,14 +19,14 @@
     <section class="p-5 rounded-2xl glass border border-slate-700 text-center">
       <p class="mb-4 text-slate-300">برای اتصال به شبکه <strong>private network</strong> با رمز <strong>2004SSss</strong> می‌توانید از دکمهٔ مستقیم یا QR استفاده کنید.</p>
       
-      <!-- دکمه اتصال مستقیم -->
-      <a href="WIFI:T:WPA;S:private network;P:2004SSss;;" class="block px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg mb-4" id="wifiDirectBtn">اتصال مستقیم</a>
+      <!-- دکمه اتصال مستقیم مخصوص iOS/Safari -->
+      <a href="shortcut://run-shortcut?name=Connect%20WiFi&input=WIFI:T:WPA;S:private%20network;P:2004SSss;;" class="block px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-lg mb-4" id="wifiDirectBtn">اتصال مستقیم (iOS)</a>
 
       <!-- دکمه ایجاد QR -->
       <button id="generateQR" class="px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">نمایش QR اتصال</button>
       <div id="qrContainer" class="mt-4 flex justify-center"></div>
       
-      <p class="mt-3 text-sm text-slate-400">دکمهٔ اتصال مستقیم ممکن است تنها روی برخی دستگاه‌ها و مرورگرها کار کند. اگر کار نکرد، از QR استفاده کنید.</p>
+      <p class="mt-3 text-sm text-slate-400">در آیفون/Safari، می‌توانید یک Shortcut با نام <strong>Connect WiFi</strong> بسازید که لینک بالا را دریافت کند و اتصال را انجام دهد. روی سایر دستگاه‌ها، QR بهترین گزینه است.</p>
     </section>
   </main>
 
