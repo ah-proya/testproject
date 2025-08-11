@@ -1,65 +1,196 @@
-<!DOCTYPE html><html lang="en">
+<!doctype html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahproya Ahmadkhah | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>صفحه مدرن - اتصال وای‌فای و دانلود</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* اضافی برای افکت‌ها */
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.06); }
+    .bounce-slow { animation: bounce 1.6s infinite; }
+    /* جهت راست به چپ بهتر نمایش داده شود */
+    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <div class="about-section">
-      <div class="about-text">
-        <h1>About Me</h1>
-        <p>Hi! I'm Ahproya Ahmadkhah, a passionate programmer skilled in HTML, Java, and Python. I love turning ideas into clean, elegant, and scalable code. My goal is to continuously learn and collaborate on meaningful projects.</p>
-        <div class="contact-links">
-          <a href="mailto:your@email.com">📧 your@email.com</a>
-          <a href="https://github.com/yourusername" target="_blank">💻 github.com/yourusername</a>
-          <a href="tel:+123456789">📞 +123456789</a>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-slate-100 p-6">
+  <main class="max-w-4xl mx-auto">
+    <header class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-semibold">پنل اتصال و دانلود</h1>
+        <p class="text-slate-400 mt-1">یک طراحی مدرن با دکمهٔ اتصال به وای‌فای و چند دکمهٔ دانلود</p>
+      </div>
+      <div class="flex gap-3 items-center">
+        <div class="text-sm text-slate-300">وضعیت:</div>
+        <div id="statusBadge" class="px-3 py-1 rounded-full glass text-xs font-medium">آفلاین</div>
+      </div>
+    </header>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- کارت اتصال وای‌فای -->
+      <article class="p-5 rounded-2xl glass border border-slate-700">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-semibold">وصل شدن به وای‌فای</h2>
+            <p class="text-slate-400 text-sm mt-1">با وارد کردن مشخصات شبکه، شبیه‌سازی اتصال انجام می‌شود.</p>
+          </div>
+          <svg class="w-10 h-10 text-indigo-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 18c.83 0 1.5-.67 1.5-1.5S12.83 15 12 15s-1.5.67-1.5 1.5S11.17 18 12 18z" fill="currentColor" />
+            <path d="M4.93 9.07a10 10 0 0 1 14.14 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M7.76 11.94a6 6 0 0 1 8.48 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         </div>
-      </div>
-      <div class="profile-pic">
-        <img src="your-profile.jpg" alt="Your Profile Picture">
-      </div>
-    </div><div class="section">
-  <h2>Education</h2>
-  <p>Self-Taught Developer & Continuous Learner</p>
-</div>
 
-<div class="section">
-  <h2>Skills</h2>
-  <div class="grid-2">
-    <div>
-      <h3>Technical Skills</h3>
-      <ul>
-        <li>HTML / CSS / JS</li>
-        <li>Python (Flask, Django)</li>
-        <li>Java (Spring Boot)</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Soft Skills</h3>
-      <ul>
-        <li>Problem Solving</li>
-        <li>Time Management</li>
-        <li>Teamwork</li>
-        <li>Adaptability</li>
-      </ul>
-    </div>
-  </div>
-</div>
+        <form id="wifiForm" class="mt-5 space-y-3">
+          <div>
+            <label class="text-sm text-slate-300">نام شبکه (SSID)</label>
+            <input id="ssid" type="text" placeholder="مثال: MyHomeWiFi" class="mt-1 w-full rounded-lg bg-transparent border border-slate-700 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="text-sm text-slate-300">رمز عبور</label>
+            <div class="mt-1 relative">
+              <input id="pwd" type="password" placeholder="••••••••" class="w-full rounded-lg bg-transparent border border-slate-700 px-3 py-2 pr-10 outline-none" />
+              <button type="button" id="togglePwd" class="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-sm">نمایش</button>
+            </div>
+          </div>
 
-<div class="section">
-  <h2>Languages</h2>
-  <ul>
-    <li>فارسی (Native)</li>
-    <li>English (Intermediate)</li>
-    <li>German (Basic)</li>
-  </ul>
-</div>
+          <div class="flex items-center gap-3">
+            <button id="connectBtn" type="button" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 shadow-lg">وصل شدن</button>
+            <button id="previewBtn" type="button" class="px-3 py-2 rounded-lg border border-slate-700">پیش‌نمایش</button>
+            <div class="text-sm text-slate-400">یا از QR استفاده کن</div>
+          </div>
 
-  </div>
-  <script src="script.js"></script>
+          <div id="connectArea" class="mt-4 hidden">
+            <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+              <div id="progressBar" class="h-3 rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 w-0 transition-all"></div>
+            </div>
+            <div id="connectMsg" class="mt-2 text-sm text-slate-300">در حال تلاش برای اتصال...</div>
+          </div>
+        </form>
+      </article>
+
+      <!-- کارت دانلود -->
+      <article class="p-5 rounded-2xl glass border border-slate-700">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-semibold">دانلودها</h2>
+            <p class="text-slate-400 text-sm mt-1">چند لینک دانلود با دکمه‌های جذاب</p>
+          </div>
+          <svg class="w-10 h-10 text-emerald-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M20 21H4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <div class="mt-5 grid gap-3">
+          <!-- دانلود 1 -->
+          <div class="flex items-center justify-between p-3 rounded-lg border border-slate-700">
+            <div>
+              <div class="font-medium">نسخه ویندوز</div>
+              <div class="text-slate-400 text-sm">حجم: 45MB • فرمت: exe</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a class="px-3 py-2 rounded-md bg-slate-700 hover:bg-slate-600" href="#" data-link="https://example.com/windows.exe">دانلود</a>
+              <button class="px-3 py-2 rounded-md border" data-copy="https://example.com/windows.exe">کپی لینک</button>
+            </div>
+          </div>
+
+          <!-- دانلود 2 -->
+          <div class="flex items-center justify-between p-3 rounded-lg border border-slate-700">
+            <div>
+              <div class="font-medium">نسخه مک</div>
+              <div class="text-slate-400 text-sm">حجم: 60MB • فرمت: dmg</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a class="px-3 py-2 rounded-md bg-indigo-500 hover:bg-indigo-600" href="#" data-link="https://example.com/macos.dmg">دانلود</a>
+              <button class="px-3 py-2 rounded-md border" data-copy="https://example.com/macos.dmg">کپی لینک</button>
+            </div>
+          </div>
+
+          <!-- دانلود 3 -->
+          <div class="flex items-center justify-between p-3 rounded-lg border border-slate-700">
+            <div>
+              <div class="font-medium">نسخه اندروید</div>
+              <div class="text-slate-400 text-sm">حجم: 28MB • فرمت: apk</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a class="px-3 py-2 rounded-md bg-emerald-500 hover:bg-emerald-600" href="#" data-link="https://example.com/android.apk">دانلود</a>
+              <button class="px-3 py-2 rounded-md border" data-copy="https://example.com/android.apk">کپی لینک</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-5 text-slate-400 text-sm">می‌توانید آدرس‌های بالا را با آدرس‌های واقعی خود جایگزین کنید.</div>
+      </article>
+    </section>
+
+    <footer class="mt-8 text-center text-slate-500 text-sm">طراحی‌شده با ❤️ — نیاز به تغییر داری؟ لینک‌ها یا استایل رو بفرست تا ویرایش کنم.</footer>
+  </main>
+
+  <script>
+    // تعاملات جاوااسکریپت
+    const togglePwd = document.getElementById('togglePwd');
+    const pwdInput = document.getElementById('pwd');
+    const connectBtn = document.getElementById('connectBtn');
+    const connectArea = document.getElementById('connectArea');
+    const progressBar = document.getElementById('progressBar');
+    const connectMsg = document.getElementById('connectMsg');
+    const statusBadge = document.getElementById('statusBadge');
+
+    togglePwd.addEventListener('click', () => {
+      if (pwdInput.type === 'password') { pwdInput.type = 'text'; togglePwd.textContent = 'پنهان'; }
+      else { pwdInput.type = 'password'; togglePwd.textContent = 'نمایش'; }
+    });
+
+    connectBtn.addEventListener('click', () => {
+      const ssid = document.getElementById('ssid').value.trim();
+      const pwd = pwdInput.value.trim();
+      if (!ssid) { alert('لطفاً نام شبکه (SSID) را وارد کنید.'); return; }
+      connectArea.classList.remove('hidden');
+      progressBar.style.width = '0%';
+      connectMsg.textContent = 'در حال برقراری اتصال به ' + ssid + '...';
+
+      // شبیه‌سازی پیشرفت
+      let p = 0;
+      statusBadge.textContent = 'در حال اتصال';
+      const t = setInterval(() => {
+        p += Math.floor(Math.random() * 15) + 8; // افزایش تصادفی
+        if (p >= 100) p = 100;
+        progressBar.style.width = p + '%';
+        if (p >= 100) {
+          clearInterval(t);
+          connectMsg.textContent = 'متصل شد — IP: 192.168.1.' + Math.floor(Math.random()*200+20);
+          statusBadge.textContent = 'آنلاین';
+        }
+      }, 500);
+    });
+
+    // کپی لینک
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(url).then(() => {
+          btn.textContent = 'کپی شد';
+          setTimeout(() => btn.textContent = 'کپی لینک', 1500);
+        }).catch(() => alert('کپی ناموفق بود'));
+      });
+    });
+
+    // دکمه پیش‌نمایش
+    document.getElementById('previewBtn').addEventListener('click', () => {
+      const ssid = document.getElementById('ssid').value || 'MyHomeWiFi';
+      const pwd = pwdInput.value ? '●●●●●●' : '(بدون رمز)';
+      alert('پیش‌نمایش\nSSID: ' + ssid + '\nرمز: ' + pwd);
+    });
+
+    // لینک‌های دانلود نمونه را به href واقعی نسبت دهید (در اینجا # هستند)
+    document.querySelectorAll('a[data-link]').forEach(a => {
+      const u = a.getAttribute('data-link');
+      a.href = u; // اگر می‌خواهید باز کردن در تب جدید: a.target = '_blank'
+      a.target = '_blank';
+    });
+  </script>
 </body>
 </html>
