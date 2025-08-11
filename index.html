@@ -17,10 +17,30 @@
     </header>
 
     <section class="p-5 rounded-2xl glass border border-slate-700 text-center">
-      <p class="mb-4 text-slate-300">برای اتصال به شبکه <strong>private network</strong> با رمز <strong>2004SSss</strong> روی دکمه زیر کلیک کنید.</p>
-      <a href="WIFI:T:WPA;S:private network;P:2004SSss;;" class="px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg" id="wifiAutoBtn">اتصال خودکار</a>
-      <p class="mt-3 text-sm text-slate-400">ممکن است این قابلیت فقط در برخی مرورگرها و دستگاه‌ها کار کند.</p>
+      <p class="mb-4 text-slate-300">برای اتصال به شبکه <strong>private network</strong> با رمز <strong>2004SSss</strong> روی دکمه زیر کلیک کنید یا QR کد را اسکن نمایید.</p>
+      
+      <!-- دکمه ایجاد QR و اتصال -->
+      <button id="generateQR" class="px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">نمایش QR اتصال</button>
+      <div id="qrContainer" class="mt-4 flex justify-center"></div>
+      
+      <p class="mt-3 text-sm text-slate-400">با اسکن QR در گوشی یا دستگاه پشتیبانی‌شده، اتصال مستقیم انجام می‌شود.</p>
     </section>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    document.getElementById('generateQR').addEventListener('click', () => {
+      const qrContainer = document.getElementById('qrContainer');
+      qrContainer.innerHTML = '';
+      new QRCode(qrContainer, {
+        text: 'WIFI:T:WPA;S:private network;P:2004SSss;;',
+        width: 200,
+        height: 200,
+        colorDark : '#ffffff',
+        colorLight : 'transparent',
+        correctLevel : QRCode.CorrectLevel.H
+      });
+    });
+  </script>
 </body>
 </html>
