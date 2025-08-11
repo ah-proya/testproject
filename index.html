@@ -1,74 +1,64 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اتصال سریع و دانلود</title>
+<title>اتصال و دانلود</title>
 <style>
     body {
         font-family: sans-serif;
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        color: white;
+        background: linear-gradient(135deg, #1a1a1a, #333);
+        color: #fff;
         text-align: center;
-        padding: 30px;
+        padding: 50px;
     }
     h1 {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
-    button, a.btn {
+    .btn {
         display: inline-block;
         padding: 15px 25px;
-        margin: 10px;
+        margin: 15px;
         font-size: 18px;
-        border: none;
-        border-radius: 10px;
-        background: #ff9800;
         color: white;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
-    button:hover, a.btn:hover {
-        background: #e68900;
-    }
-    .qr {
-        margin-top: 20px;
-        background: white;
-        padding: 10px;
+        background: #2196f3;
         border-radius: 10px;
-        display: inline-block;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background: #0b7dda;
+    }
+    .wifi {
+        background: #4caf50;
+    }
+    .wifi:hover {
+        background: #3e8e41;
+    }
+    .download {
+        background: #ff9800;
+    }
+    .download:hover {
+        background: #e68900;
     }
 </style>
 </head>
 <body>
 
-<h1>اتصال سریع و دانلود</h1>
+<h1>اتصال و دانلود</h1>
 
-<!-- دکمه اتصال به وایفای -->
-<button onclick="connectWifi()">اتصال به WiFi</button>
-
-<!-- دکمه دانلود V2RayNG -->
-<a class="btn" href="https://github.com/2dust/v2rayNG/releases/download/1.10.11/v2rayNG_1.10.11_arm64-v8a.apk">
-    📥 دانلود V2RayNG
+<!-- دکمه اتصال وای‌فای -->
+<a class="btn wifi" href="WIFI:T:WPA;S:private network;P:2004SSss;;">
+    اتصال به وای‌فای
 </a>
 
-<!-- QR کد برای iOS -->
-<div class="qr">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?data=WIFI:S:private%20network;T:WPA;P:2004SSss;;&size=200x200" alt="QR WiFi">
-    <p style="color:black;">برای iOS/Android با دوربین اسکن کنید</p>
-</div>
+<!-- دکمه دانلود v2rayNG -->
+<a class="btn download" href="https://github.com/2dust/v2rayNG/releases/download/1.10.11/v2rayNG_1.10.11_arm64-v8a.apk">
+    دانلود v2rayNG
+</a>
 
-<script>
-function connectWifi() {
-    // تلاش برای اتصال از طریق URL Scheme
-    window.location.href = "WIFI:S:private network;T:WPA;P:2004SSss;;";
-
-    // اگر کار نکرد، باز کردن تنظیمات وای‌فای (اندروید)
-    setTimeout(() => {
-        window.location.href = "intent://settings#wifi#Intent;scheme=android.settings.WIFI_SETTINGS;end";
-    }, 1000);
-}
-</script>
+<!-- بقیه دکمه‌های دانلود (مثال) -->
+<a class="btn download" href="https://example.com/file1.zip">دانلود فایل ۱</a>
+<a class="btn download" href="https://example.com/file2.zip">دانلود فایل ۲</a>
 
 </body>
 </html>
