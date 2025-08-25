@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>صفحه نرم افزاری </title>
+  <title>صفحه مدرن - اتصال وای‌فای و دانلود</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.06); }
@@ -33,7 +33,7 @@
 
     <section class="p-4 sm:p-6 rounded-2xl glass border border-slate-700 text-center">
       <p class="mb-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-        صفحه کاربری اتصال به وایفای و دانلود کار های نرم افزاری 
+        برای اتصال به شبکه <strong>private network</strong> با رمز <strong>2004SSss</strong> از یکی از دکمه‌های زیر استفاده کنید — بهترین تجربه روی <strong>اندروید + کروم</strong> یا با اسکن QR امکان‌پذیر است.
       </p>
 
       <!-- دکمه مخصوص اندروید کروم -->
@@ -60,23 +60,6 @@
         <a href="https://t.me/aps_vip_bot" target="_blank" rel="noopener noreferrer" class="btn">ربات فیلترشکن</a>
         <button onclick="alert('6037 9917 7186 1733 ')" class="btn">شماره کارت</button>
       </div>
-
-      <!-- 🔹 بخش ابزارهای نرم‌افزاری (Romstage Inspired) -->
-      <section class="max-w-4xl mx-auto my-6 p-4 sm:p-6 bg-slate-800 glass rounded-2xl border border-slate-700 text-center">
-        <h2 class="text-lg sm:text-xl font-semibold text-white mb-4">🛠 ابزارهای سریع اندروید و آیفون</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          <a href="https://developer.android.com/studio" target="_blank" class="btn">Android Studio</a>
-          <a href="https://developer.apple.com/xcode/" target="_blank" class="btn">Xcode</a>
-          <a href="https://www.speedtest.net" target="_blank" class="btn">SpeedTest</a>
-          <a href="https://github.com" target="_blank" class="btn">GitHub</a>
-          <a href="https://play.google.com/store/apps/details?id=com.google.android.youtube" target="_blank" class="btn">YouTube</a>
-          <a href="https://chrome.google.com/webstore" target="_blank" class="btn">Chrome</a>
-        </div>
-        <p class="mt-3 note text-sm leading-relaxed">
-          این بخش ابزارها برای دسترسی سریع به محیط‌های توسعه، تست و مرورگر طراحی شده است.  
-          می‌توانید برای اندروید و آیفون از آن‌ها استفاده کنید.
-        </p>
-      </section>
 
       <!-- دکمه QR -->
       <button id="generateQR" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">
@@ -137,7 +120,7 @@
     });
 
     // دکمه کپی ساب
-    const subLink = "https://dll.sibpanel.com:8000/sub/RG9rYW4sMTc1NjEwOTMwNwpL0fDVcpbU"; // لینک واقعی ساب رو اینجا بذار
+    const subLink = "https://example.com/subscription/link"; // لینک واقعی ساب رو اینجا بذار
     document.getElementById("copySub").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(subLink);
