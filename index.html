@@ -46,9 +46,9 @@
         بازکردن تنظیمات وای‌فای (اگر مستقیم نشد)
       </a>
 
-      <!-- دکمه باز کردن Happ و افزودن کانفیگ -->
-      <button id="openHapp" class="block w-full sm:w-auto mx-auto px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg mb-4">
-        افزودن کانفیگ به Happ
+      <!-- دکمه کپی لینک ساب -->
+      <button id="copySub" class="block w-full sm:w-auto mx-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg mb-4">
+        کپی کردن لینک ساب
       </button>
 
       <!-- بخش دکمه‌های دانلود -->
@@ -119,14 +119,15 @@
       window.location.href = intentLink;
     });
 
-    // باز کردن Happ و افزودن کانفیگ
-    const config = "vless://a43484a9-4077-47a6-ab02-842e94edc0bb@p1.sibstore.space:4440?security=reality&type=xhttp&headerType=&path=%2Fpath&host=p1.sibstore.space&mode=auto&extra=%7B%22scMaxEachPostBytes%22%3A+1000000%2C+%22scMaxConcurrentPosts%22%3A+100%2C+%22scMinPostsIntervalMs%22%3A+30%2C+%22xPaddingBytes%22%3A+%22100-1000%22%2C+%22noGRPCHeader%22%3A+false%7D&sni=www.wikimedia.org&fp=chrome&pbk=1ggFthcW8W8t0ZcdiuxcddBxWbZgmi42Ga2kZyIS6HQ&sid=712a1a17ff707046#Turkey%F0%9F%87%B9%F0%9F%87%B7"; // کانفیگت اینجا
-    document.getElementById('openHapp').addEventListener('click', () => {
-      const happLink = `happ://import?url=${encodeURIComponent(config)}`;
-      window.location.href = happLink;
-      setTimeout(() => {
-        window.location.href = "https://github.com/Happ-proxy/happ-android/releases/latest";
-      }, 1200);
+    // دکمه کپی ساب
+    const subLink = "https://example.com/subscription/link"; // لینک واقعی ساب رو اینجا بذار
+    document.getElementById("copySub").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(subLink);
+        alert("✅ لینک ساب با موفقیت کپی شد!");
+      } catch (err) {
+        alert("❌ مرورگر اجازه کپی مستقیم نداد، دستی کپی کنید:\n" + subLink);
+      }
     });
   </script>
 </body>
