@@ -3,24 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>صفحه لینک</title>
+  <title>صفحه لینک و ابزارها</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.06); }
     body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     .note { font-size: 0.9rem; color: #cbd5e1; }
+
+    /* همه دکمه‌ها یک رنگ و اندازه ثابت */
     .btn {
       display: inline-block;
-      padding: 12px 24px;
-      margin: 6px 6px;
+      width: 100%;
+      max-width: 220px;
+      padding: 10px 0;
+      margin: 5px auto;
       border-radius: 10px;
-      background: #4f46e5;
+      background-color: #4f46e5;
       color: white;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 4px 8px rgb(79 70 229 / 0.4);
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgb(79 70 229 / 0.4);
       text-align: center;
+      transition: background-color 0.3s ease;
     }
     .btn:hover { background-color: #4338ca; }
   </style>
@@ -28,43 +32,28 @@
 <body class="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-slate-100 p-4 sm:p-6">
   <main class="max-w-4xl mx-auto">
     <header class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-2 text-center sm:text-right">
-      <h1 class="text-2xl sm:text-3xl font-semibold"> link web and tools </h1>
+      <h1 class="text-2xl sm:text-3xl font-semibold">link web and tools</h1>
     </header>
 
     <section class="p-4 sm:p-6 rounded-2xl glass border border-slate-700 text-center">
       <p class="mb-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-        <strang> در این صفحه لینک ها و ابزار نرم افزاری قرار میگیرد</strang>
+        در این صفحه لینک‌ها و ابزار نرم‌افزاری قرار می‌گیرد.
       </p>
 
-      <!-- دکمه مخصوص اندروید کروم -->
-      <button id="androidBtn" class="block w-full sm:w-auto mx-auto px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-semibold shadow-lg mb-3 sm:mb-4">
-        اتصال (Android — Chrome)
-      </button>
-
-      <!-- دکمه بازکردن تنظیمات -->
-      <a id="openSettings" href="#" class="block w-full sm:w-auto mx-auto px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-medium mb-3 sm:mb-4">
-        بازکردن تنظیمات وای‌فای (اگر مستقیم نشد)
-      </a>
-
-      <!-- دکمه کپی لینک ساب -->
-      <button id="copySub" class="block w-full sm:w-auto mx-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg mb-4">
-        کپی کردن لینک ساب
-      </button>
-
-      <!-- بخش دکمه‌های دانلود -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 my-4">
-        <a class="btn download" href="https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank" rel="noopener noreferrer">دانلود happ</a>
-        <a class="btn download" href="https://www.dl.farsroid.com/ap/Samsung%20Smart-Switch-3.7.65.4(www.farsroid.com).apk" target="_blank" rel="noopener noreferrer">Smart Switch</a>
-        <a class="btn download" href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690" target="_blank" rel="noopener noreferrer">v2box iOS</a>
-        <a href="https://t.me/aps_vip_ch" target="_blank" rel="noopener noreferrer" class="btn">کانال تلگرام</a>
-        <a href="https://t.me/aps_vip_bot" target="_blank" rel="noopener noreferrer" class="btn">ربات فیلترشکن</a>
+      <!-- دکمه‌های اصلی (گرید برای موبایل و دسکتاپ) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center my-4">
+        <button id="androidBtn" class="btn">اتصال (Android — Chrome)</button>
+        <a id="openSettings" href="#" class="btn">بازکردن تنظیمات وای‌فای</a>
+        <button id="copySub" class="btn">کپی کردن لینک ساب</button>
+        <a class="btn" href="https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank">دانلود happ</a>
+        <a class="btn" href="https://www.dl.farsroid.com/ap/Samsung%20Smart-Switch-3.7.65.4(www.farsroid.com).apk" target="_blank">Smart Switch</a>
+        <a class="btn" href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690" target="_blank">v2box iOS</a>
+        <a class="btn" href="https://t.me/aps_vip_ch" target="_blank">کانال تلگرام</a>
+        <a class="btn" href="https://t.me/aps_vip_bot" target="_blank">ربات فیلترشکن</a>
         <button onclick="alert('6037 9917 7186 1733 ')" class="btn">شماره کارت</button>
+        <button id="generateQR" class="btn">نمایش QR اتصال</button>
       </div>
 
-      <!-- دکمه QR -->
-      <button id="generateQR" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white font-semibold shadow-lg mb-4">
-        نمایش QR اتصال
-      </button>
       <div id="qrContainer" class="mt-4 flex justify-center"></div>
 
       <p class="mt-3 note leading-relaxed">
@@ -80,7 +69,6 @@
     const pass = '3750715009';
     const wifiPayload = `WIFI:T:WPA;S:${ssid};P:${pass};;`;
 
-    // QR code
     document.getElementById('generateQR').addEventListener('click', () => {
       const qrContainer = document.getElementById('qrContainer');
       qrContainer.innerHTML = '';
@@ -94,7 +82,6 @@
       });
     });
 
-    // Android detection
     function isAndroid() { return /Android/i.test(navigator.userAgent); }
     function isChrome() { return /Chrome/i.test(navigator.userAgent) && !/Edge|OPR|Edg/i.test(navigator.userAgent); }
 
@@ -119,8 +106,7 @@
       window.location.href = intentLink;
     });
 
-    // دکمه کپی ساب
-    const subLink = "https://example.com/subscription/link"; // لینک واقعی ساب رو اینجا بذار
+    const subLink = "https://example.com/subscription/link";
     document.getElementById("copySub").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(subLink);
